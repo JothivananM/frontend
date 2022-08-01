@@ -9,8 +9,7 @@ public class frontendController {
 	@RequestMapping("/*")
 	public String sidebarPage(){
 		return "index";
-	}
-	
+	}	
 
 	@RequestMapping("/templates/indexContent.html")
 	public String showIndexContent(){
@@ -32,17 +31,19 @@ public class frontendController {
 		return "Login";
 	}
 
-	@RequestMapping("/templates/button.js")
-	public String showButton(){
-		return "button";
+	@RequestMapping("/templates/404.html")
+	public String show404(){
+		return "404";
 	}
 	
-	
-	// @RequestMapping("/templates/Login.html")
-	// public String lorem(){
-	// 	return "Login";
-	// }
-		
-	
+	@RequestMapping("/templates/Employee-List.html")
+	public String showEmployeeList(){
+		return "Employee-List";
+	}
+
+	@RequestMapping("/templates/Timesheet-Management.html")
+	public String showTimesheet(){
+		return "Timesheet-Management";
+	}
 	
 }

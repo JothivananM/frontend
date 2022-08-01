@@ -73,7 +73,7 @@
               <!-- Notifications Dropdown Menu -->
               <li class="nav-item dropdown">
                 <a class="nav-link" data-toggle="dropdown" href="#">
-                  <i class="far fa-bell"id="header-icon"></i>
+                  <i class="far fa-bell"id="header-icon" data-toggle="tooltip" data-placement="left" title="Notification"></i>
                   <!-- <span class="badge badge-warning navbar-badge">15</span> -->
                 </a>
                 <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
@@ -100,7 +100,7 @@
               <li class="nav-item dropdown">
                 <a href="#" class="nav-link" data-toggle="dropdown">
                     <!-- <i class="far-thin fa-gear"></i> -->
-                    <i class="far fa-sun"id="header-icon"></i>
+                    <i class="far fa-sun"id="header-icon"data-toggle="tooltip" data-placement="left" title="Settings"></i>
                 </a>
 
                 <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
@@ -126,20 +126,16 @@
 
               <li class="nav-item">
                 <a class="nav-link toastrFullscreen" data-widget="fullscreen" href="#" role="button">
-                  <i class="fas fa-expand-arrows-alt" id="header-icon"></i>
+                  <i class="fas fa-expand-arrows-alt" id="header-icon"data-toggle="tooltip" data-placement="left" title="Go fullscreen"></i>
                 </a>
               </li>
-              <!-- <li class="nav-item">
-                <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
-                  <i class="fas fa-th-large"></i>
-                </a>
-              </li> -->
+             
             </ul>
           </nav>
 
     </div>
 
-    <aside class="main-sidebar sidebar-dark-primary" style="position: fixed;background-color: #001d44;" id="my-sidebar">
+    <aside class="main-sidebar sidebar-dark-primary sidebar-no-expand" style="position: fixed;background-color: #001d44;" id="my-sidebar">
         <!-- Brand Logo -->
         <div class="brand-link">
           <a href="/"><img src="/dist/img/timesheet-icon.png" alt="AdminLTE Logo" class="brand-image"></a>
@@ -154,7 +150,8 @@
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false" id="ul-div">
               <!-- Add icons to the links using the .nav-icon class
                    with font-awesome or any other icon font library -->
-                    
+
+                                      
             </ul>
        
           </nav>
@@ -163,6 +160,7 @@
         <!-- /.sidebar -->
     </aside>
 
+    <!-- Main Content goes here -->
     <div id="main-page">
 
 
@@ -221,6 +219,7 @@
 
 <!-- Jquery -->
 <script src="plugins/jquery/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
 <!-- Bootstrap 4 -->
 <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- toastr -->
@@ -245,7 +244,11 @@
 <script src="js/router.js"></script>
 
 <script>
+
    $(function () {
+
+    $('i').tooltip()
+
     $("#example1").DataTable({
       "responsive": true, "lengthChange": false, "autoWidth": false,
       "buttons": ["copy", "csv", "excel", "pdf", "print"]
@@ -260,6 +263,7 @@
       "responsive": true,
     });
   });
+
 </script>
 
 <script>

@@ -38,18 +38,18 @@
         <div class="card-body">
           <div class="form-group">
             <label for="exampleInputEmail1">Email address</label>
-            <input type="email" name="email" class="form-control" id="txt-username" placeholder="Enter email">
+            <input type="email" name="email" class="form-control" id="txt-username" placeholder="johndoe@gmail.com">
           </div>
           <div class="form-group">
             <label for="exampleInputPassword1">Password</label>
-            <input type="password" name="password" class="form-control" id="txt-password" placeholder="Password">
+            <input type="password" name="password" class="form-control" id="txt-password" placeholder="Temp@123">
           </div>
           <p class="form-group" style="float: right;">
               <a href="" class="text-secondary" style="text-decoration: underline;">I forgot my password</a>
             </p>
         </div>
         <!-- /.card-body -->
-        <div class="card-footer">
+        <div class="card-footer text-light">
           <!-- <button type="submit" class="btn btn-secondary btn-md">Sign In</button> -->
           <button type="submit" class="btn btn-secondary btn-md">Sign In</button>
         </div>
@@ -71,7 +71,7 @@
 <!-- AdminLTE App -->
 <script src="dist/js/adminlte.min.js"></script>
 <!-- Router -->
-<script src="js/router.js"></script>
+<!-- <script src="js/router.js"></script> -->
 <script src="dist/js/demo.js"></script>
 
 <script>
@@ -81,7 +81,7 @@
     $.validator.setDefaults({
       submitHandler: function () {
         
-        alert( "Form successful submitted!" );
+        //alert( "Form successful submitted!" );
         loginUser();                    	 
        //"companyEmailId":$("#txt-yourPassword").val(),
          //"name":$("#txt-Username").val() 
@@ -134,20 +134,21 @@
               companyEmailId :$("#txt-username").val() ,
                 password : $("#txt-password").val()
            }
-           alert(JSON.stringify(emp));
+           //alert(JSON.stringify(emp));
            
          $.ajax({
-         url :"http://35.170.131.162:8080/employeeTimesheet/user/login",
+         url :"http://localhost:8090/user/login",
          //url:"http://localhost:8080/employeeTimesheet/user/login",
                  type: 'post',
                  dataType: 'json',
                  async: false,
                  contentType: "application/json",
-                  data:JSON.stringify(emp),
+                 data:JSON.stringify(emp),
 
                  success: function(successData) {
                   alert(successData.data.accessToken);
                   $.cookie("auth", successData.data.accessToken);
+                  
                   window.location.replace('http://localhost:8080/');
                 //  var token=localStorage.setItem('token',successData.data.accessToken);
                 //      getDetails(successData.data.accessToken);
@@ -162,24 +163,6 @@
   }
 
   
-  function getDetails(accessToken) {
-
-        alert(accessToken);
-
-           $.ajax({
-
-               url: "http://localhost:8080/" + "user/login?companyEmailId="+$("#txt-username").val(),
-               type: 'get',
-               dataType: 'json',
-               headers: {"Authorization": accessToken},
-               success: function(data) {
-                  alert(data);
-               },
-               error: function(request, message, error) {
-                   toastr.error("Data Processing Error");
-               }
-           });
-          }
   
 </script>
 </body>
